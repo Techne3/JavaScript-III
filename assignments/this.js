@@ -22,20 +22,53 @@ function petSound(){
 
 // code example for Implicit Binding
 
+
+
 const newList = {
     name:'John',
     age:31,
     hobby: 'Biking',
     yearsHobby:15,
     interests: function() {
-        console.log(`${this.name} who is ${this.age} years old, has been ${this.hobby} for ${this.yearsHobby} `)
+        console.log(`${this.name} who is ${this.age} years old, has been ${this.hobby} for ${this.yearsHobby} years`)
     }
 }
 newList.interests();
 
 
 // Principle 3
+function personPastTime(obs) {
+    this.name=obs.name;
+    this.age = obs.age;
+    this.hobby=obs.hobby;
+    this.yearsHobby=obs.yearsHobby;
+    this.interests=function(){
+        // console.log(this)
+      return(`${this.name} who is ${this.age} years old, has been ${this.hobby} for ${this.yearsHobby} years`)
+    }
+  }
+  
+  const jonny = new personPastTime({
+    name:'john',
+    age:32,
+    hobby:'Lacrosse',
+    yearsHobby:10,
+});
+  const megan = new personPastTime ({
+      name:'meghan',
+     age:33,
+     hobby:'Biking',
+    yearsHobby:12
+});
+  
+  console.log(jonny.interests())
+  console.log(megan.interests())
 
+
+
+// Principle 4
+
+// code example for Explicit Binding
 
 function personPastTime(obects) {
     this.name=obects.name;
@@ -48,13 +81,18 @@ function personPastTime(obects) {
     }
   }
   
-  const john = new personPastTime({name:'john', age:32, hobby:'Lacrosse',yearsHobby:10});
-  const meghan = new personPastTime ({name:'meghan', age:33, hobby:'Biking',yearsHobby:12});
+  const john = new personPastTime({
+    name:'john',
+    age:32,
+    hobby:'Lacrosse',
+    yearsHobby:10,
+});
+  const meghan = new personPastTime ({
+      name:'meghan',
+     age:33,
+     hobby:'Biking',
+    yearsHobby:12
+});
   
   console.log(john.interests.call(john))
   console.log(meghan.interests.call(meghan))
-
-
-// Principle 4
-
-// code example for Explicit Binding
