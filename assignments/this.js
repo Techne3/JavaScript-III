@@ -37,7 +37,7 @@ newList.interests();
 
 
 // Principle 3
-function personPastTime(obs) {
+function personPastTimes(obs) {
     this.name=obs.name;
     this.age = obs.age;
     this.hobby=obs.hobby;
@@ -48,13 +48,13 @@ function personPastTime(obs) {
     }
   }
   
-  const jonny = new personPastTime({
+  const jonny = new personPastTimes({
     name:'john',
-    age:32,
+    age:28,
     hobby:'Lacrosse',
     yearsHobby:10,
 });
-  const megan = new personPastTime ({
+  const megan = new personPastTimes ({
       name:'meghan',
      age:33,
      hobby:'Biking',
@@ -66,15 +66,22 @@ function personPastTime(obs) {
 
 
 
+
+
+
+
+
+
+
 // Principle 4
 
 // code example for Explicit Binding
 
-function personPastTime(obects) {
-    this.name=obects.name;
-    this.age = obects.age;
-    this.hobby=obects.hobby;
-    this.yearsHobby=obects.yearsHobby;
+function personPastTime(objects) {
+    this.name=objects.name;
+    this.age = objects.age;
+    this.hobby=objects.hobby;
+    this.yearsHobby=objects.yearsHobby;
     this.interests=function(){
         // console.log(this)
       return(`${this.name} who is ${this.age} years old, has been ${this.hobby} for ${this.yearsHobby} years`)
